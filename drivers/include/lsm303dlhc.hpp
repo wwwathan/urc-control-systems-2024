@@ -1,8 +1,3 @@
-#pragma once
-#include <libhal-util/i2c.hpp>
-#include <libhal/pointers.hpp>
-#include <libhal/units.hpp>
-
 namespace sjsu::drivers {
 
 /**
