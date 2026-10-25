@@ -18,24 +18,24 @@ private:
   enum addresses
   {
     accelerometer_address = 0x19,
-    wake_up_acceloremeter_register = 0x20,
+    wake_up_accelerometer_register = 0x20,
     wake_up_accelerometer_write = 0x57,
     get_x_accel_address_lo = 0x28,
     get_x_accel_address_hi = 0x29,
-    get_y_accel_address_lo = 0x2A,
-    get_y_accel_address_hi = 0x2B,
-    get_z_accel_address_lo = 0x2C,
-    get_z_accel_address_hi = 0x2D,
+    // get_y_accel_address_lo = 0x2A,
+    // get_y_accel_address_hi = 0x2B,
+    // get_z_accel_address_lo = 0x2C,
+    // get_z_accel_address_hi = 0x2D,
 
     magnetometer_address = 0x1E,
     wake_up_magnetometer_register = 0x02,
     wake_up_magnetometer_write = 0x00,
     get_x_mag_address_lo = 0x03,
     get_x_mag_address_hi = 0x04,
-    get_y_mag_address_lo = 0x05,
-    get_y_mag_address_hi = 0x06,
-    get_z_mag_address_lo = 0x07,
-    get_z_mag_address_hi = 0x08
+    // get_y_mag_address_lo = 0x05,
+    // get_y_mag_address_hi = 0x06,
+    // get_z_mag_address_lo = 0x07,
+    // get_z_mag_address_hi = 0x08
   };
 
 public:
