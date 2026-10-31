@@ -27,11 +27,9 @@ void lsm303dlhc::start()
 
 lsm303dlhc::lsm303dlhc_read_acceleration_data lsm303dlhc::read_accel_data()
 {
-  std::array<hal::byte, 2> accel_x_address = {
-    // this is the register address + data
-    get_x_accel_address_hi,
-    get_x_accel_address_lo
-  };
+  std::array<hal::byte, 1> accel_x_address = { read_accel };
+    // this is the register address, data is the byte after
+
   std::array<hal::byte, 6> buffer;
   hal::write(*m_i2c,
              addresses::accelerometer_address,
