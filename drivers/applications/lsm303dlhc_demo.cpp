@@ -31,13 +31,13 @@ void application()
     auto y_mag = mag.y_mag;
     auto z_mag = mag.z_mag;
 
-    hal::print<64>(*console, "X-Acceleration %f\n", x_acc);
-    hal::print<64>(*console, "Y-Acceleration %f\n", y_acc);
-    hal::print<64>(*console, "Z-Acceleration %f\n", z_acc);
+    hal::print<64>(*console, "X-Acceleration %d\n", x_acc);
+    hal::print<64>(*console, "Y-Acceleration %d\n", y_acc);
+    hal::print<64>(*console, "Z-Acceleration %d\n", z_acc);
 
-    hal::print<64>(*console, "X-Magnetic Field %f\n", x_mag);
-    hal::print<64>(*console, "Y-Magnetic Field %f\n", y_mag);
-    hal::print<64>(*console, "Z-Magnetic Field %f\n", z_mag);
+    hal::print<64>(*console, "X-Magnetic Field %d\n", x_mag);
+    hal::print<64>(*console, "Y-Magnetic Field %d\n", y_mag);
+    hal::print<64>(*console, "Z-Magnetic Field %d\n", z_mag);
   }
 }
 }  // namespace sjsu::drivers
