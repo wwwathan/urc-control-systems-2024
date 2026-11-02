@@ -4,7 +4,7 @@
 namespace sjsu::drivers {
 
 lsm303dlhc::lsm303dlhc(hal::v5::strong_ptr<hal::i2c> p_i2c)
-  : m_i2c(p_i2c)
+  : m_i2c(std::move(p_i2c))
 {
   start();
 }
@@ -19,7 +19,7 @@ void lsm303dlhc::start()
              addresses::accelerometer_address,
              start_address_a,
              hal::never_timeout()),
-    hal::write(*m_i2c,
+  hal::write(*m_i2c,
                addresses::magnetometer_address,
                start_address_m,
                hal::never_timeout());

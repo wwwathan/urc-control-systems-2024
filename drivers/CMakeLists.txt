@@ -33,6 +33,7 @@ DEMOS
   serial_commands_demo
   soil_sensor_demo
   tla2528_analog_input_demo
+  lsm303dlhc_demo
 
 INCLUDES
   include
@@ -54,6 +55,7 @@ SOURCES
     src/soil_sensor_sht21.cpp
     src/tla2528.cpp
     src/tla2528_adapters.cpp
+    src/lsm303dlhc.cpp
 
     PACKAGES
     #Template for importing libhal packages is "libhal-__device__"
