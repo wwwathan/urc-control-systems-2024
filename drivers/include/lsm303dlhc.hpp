@@ -13,9 +13,9 @@ private:
   enum addresses
   {
     accelerometer_address = 0x19,
-    wake_up_accelerometer_register = 0x20,
-    wake_up_accelerometer_write = 0x57,
-    read_accel = 0x28,
+    ctrl_reg1_a = 0x20,
+    accelerometer_config = 0x57,
+    read_accel = 0xA8,
     /**get_x_accel_address_hi = 0x29,
     get_y_accel_address_lo = 0x2A,
     get_y_accel_address_hi = 0x2B,
@@ -23,8 +23,8 @@ private:
     get_z_accel_address_hi = 0x2D,**/
 
     magnetometer_address = 0x1E,
-    wake_up_magnetometer_register = 0x02,
-    wake_up_magnetometer_write = 0x00,
+    mr_reg_m = 0x02,
+    magnetometer_config = 0x00,
     read_mag = 0x03
     // get_x_mag_address_hi = 0x04,
     // get_y_mag_address_lo = 0x05,
@@ -36,16 +36,16 @@ private:
 public:
   struct lsm303dlhc_read_acceleration_data
   {
-    float x_accel;
-    float y_accel;
-    float z_accel;
+    int16_t x_accel;
+    int16_t y_accel;
+    int16_t z_accel;
   };
 
   struct lsm303dlhc_read_magnetometer_data
   {
-    float x_mag;
-    float y_mag;
-    float z_mag;
+    int16_t x_mag;
+    int16_t y_mag;
+    int16_t z_mag;
   };
 
   lsm303dlhc(hal::v5::strong_ptr<hal::i2c> p_i2c);
