@@ -1,10 +1,11 @@
 #include <libhal/timeout.hpp>
 #include <lsm303dlhc.hpp>
+#include <libhal-util/i2c.hpp>
 
 namespace sjsu::drivers {
 
 lsm303dlhc::lsm303dlhc(hal::v5::strong_ptr<hal::i2c> p_i2c)
-  : m_i2c(std::move(p_i2c))
+  : m_i2c(p_i2c)
 {
   start();
 }
@@ -18,7 +19,7 @@ void lsm303dlhc::start()
   hal::write(*m_i2c,
              addresses::accelerometer_address,
              start_address_a,
-             hal::never_timeout()),
+             hal::never_timeout());
   hal::write(*m_i2c,
                addresses::magnetometer_address,
                start_address_m,
@@ -59,7 +60,7 @@ lsm303dlhc::lsm303dlhc_read_magnetometer_data lsm303dlhc::read_mag_data()
              addresses::magnetometer_address,
              read_address,
              hal::never_timeout());
-  hal::read(*m_i2c, addresses::magnetometer_address, buffer);
+  hal::read(*m_i2c, addresses::magnetometer_address, buffer, hal::never_timeout());
 
   lsm303dlhc::lsm303dlhc_read_magnetometer_data ra;
   ra.x_mag = buffer[0] << 8 | buffer[1];
