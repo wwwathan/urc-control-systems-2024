@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+=======
+#pragma once
+#include <libhal-util/i2c.hpp>
+#include <libhal/pointers.hpp>
+#include <libhal/units.hpp>
+
+>>>>>>> kat-lsm303dlhc
 namespace sjsu::drivers {
 
 /**
@@ -16,6 +24,11 @@ private:
     ctrl_reg1_a = 0x20,
     accelerometer_config = 0x57,
     read_accel = 0xA8,
+<<<<<<< HEAD
+=======
+    ctrl_reg4_a = 0x23,
+    accelerometer_sensitivity_config = 0x08,
+>>>>>>> kat-lsm303dlhc
     /**get_x_accel_address_hi = 0x29,
     get_y_accel_address_lo = 0x2A,
     get_y_accel_address_hi = 0x2B,
@@ -25,7 +38,13 @@ private:
     magnetometer_address = 0x1E,
     mr_reg_m = 0x02,
     magnetometer_config = 0x00,
+<<<<<<< HEAD
     read_mag = 0x03
+=======
+    read_mag = 0x03,
+    crb_reg_m = 0x01,
+    magnetometer_sensitivity_config = 0x20
+>>>>>>> kat-lsm303dlhc
     // get_x_mag_address_hi = 0x04,
     // get_y_mag_address_lo = 0x05,
     // get_y_mag_address_hi = 0x06,
@@ -36,16 +55,28 @@ private:
 public:
   struct lsm303dlhc_read_acceleration_data
   {
+<<<<<<< HEAD
     int16_t x_accel;
     int16_t y_accel;
     int16_t z_accel;
+=======
+    float x_accel;
+    float y_accel;
+    float z_accel;
+>>>>>>> kat-lsm303dlhc
   };
 
   struct lsm303dlhc_read_magnetometer_data
   {
+<<<<<<< HEAD
     int16_t x_mag;
     int16_t y_mag;
     int16_t z_mag;
+=======
+    float x_mag;
+    float y_mag;
+    float z_mag;
+>>>>>>> kat-lsm303dlhc
   };
 
   lsm303dlhc(hal::v5::strong_ptr<hal::i2c> p_i2c);
