@@ -1,15 +1,15 @@
-<<<<<<< HEAD
-=======
 #pragma once
 #include <libhal-util/i2c.hpp>
 #include <libhal/pointers.hpp>
 #include <libhal/units.hpp>
 
->>>>>>> kat-lsm303dlhc
 namespace sjsu::drivers {
 
 /**
- * @brief 3 direction accelerometer and magnetometer
+ * @brief Driver for the LSM303DLHC 3-axis accelerometer and magnetometer.
+ *
+ * Initializes both sensors over I2C and provides scaled acceleration
+ * and magnetic-field measurements for the x, y, and z axes.
  */
 
 class lsm303dlhc
@@ -24,64 +24,46 @@ private:
     ctrl_reg1_a = 0x20,
     accelerometer_config = 0x57,
     read_accel = 0xA8,
-<<<<<<< HEAD
-=======
     ctrl_reg4_a = 0x23,
     accelerometer_sensitivity_config = 0x08,
->>>>>>> kat-lsm303dlhc
-    /**get_x_accel_address_hi = 0x29,
-    get_y_accel_address_lo = 0x2A,
-    get_y_accel_address_hi = 0x2B,
-    get_z_accel_address_lo = 0x2C,
-    get_z_accel_address_hi = 0x2D,**/
 
     magnetometer_address = 0x1E,
     mr_reg_m = 0x02,
     magnetometer_config = 0x00,
-<<<<<<< HEAD
-    read_mag = 0x03
-=======
     read_mag = 0x03,
     crb_reg_m = 0x01,
     magnetometer_sensitivity_config = 0x20
->>>>>>> kat-lsm303dlhc
-    // get_x_mag_address_hi = 0x04,
-    // get_y_mag_address_lo = 0x05,
-    // get_y_mag_address_hi = 0x06,
-    // get_z_mag_address_lo = 0x07,
-    // get_z_mag_address_hi = 0x08
   };
 
 public:
   struct lsm303dlhc_read_acceleration_data
   {
-<<<<<<< HEAD
-    int16_t x_accel;
-    int16_t y_accel;
-    int16_t z_accel;
-=======
     float x_accel;
     float y_accel;
     float z_accel;
->>>>>>> kat-lsm303dlhc
   };
 
   struct lsm303dlhc_read_magnetometer_data
   {
-<<<<<<< HEAD
-    int16_t x_mag;
-    int16_t y_mag;
-    int16_t z_mag;
-=======
     float x_mag;
     float y_mag;
     float z_mag;
->>>>>>> kat-lsm303dlhc
   };
 
   lsm303dlhc(hal::v5::strong_ptr<hal::i2c> p_i2c);
   void start();
+
+  /**
+   * @brief Reads scaled acceleration in three directions
+   *
+   * @return data for the x, y, and z axes as float
+   */
   lsm303dlhc_read_acceleration_data read_accel_data();
+  /**
+   * @brief Reads scaled magnetic-field in three directions
+   * 
+   * @return data for the x, y, and z axes as float
+   */
   lsm303dlhc_read_magnetometer_data read_mag_data();
   void stop();
 };
